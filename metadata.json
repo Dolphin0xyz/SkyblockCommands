@@ -1,0 +1,9 @@
+{
+  "name": "SkyblockCommands",
+  "creator": "Dolphin0xyz",
+  "version": "1.8.4",
+  "description": "&5&k&l00&r&3 Sky&2Block &6Commands &r&5&k&l00&r &3&l&k0&r&6&l&o1&3&l&o.&6&l&o8&3&l&o.&6&l&o4&r&3&l&k0&r&c&o by &r&4&oDolphin0xyz\n&a&l&k0&r&3 Adds keybinds for most skyblock commands, fast travel warps and more in the vanilla controls menu. Use /sc for help and to use some features. &r&a&l&k0\n&r&e&l&k0&r&2 If keys conflicts with other keys things may not work and things outside this moudule may break. &r&e&l&k0\n&r&b&l&k0&r&d Contact me if you find bugs, need help, or have features to suggest. My discord name is Dolphin0xyz#7887 and you can also find me on twitter @Dolphin0xyz. &r&b&l&k0",
+  "entry": "main.js",
+  "helpMessage": "&e&m---------------&r &5&k&l00&r&3 Sky&2Block &6Commands &r&5&k&l00&r &e&m---------------\n&r&eRun /sc to see the help guide!\n&r&e&m-----------------------------------------------------",
+  "$schema": "../CTAutocomplete/schema.json"
+}
