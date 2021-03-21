@@ -1,0 +1,2 @@
+# SkyblockCommands
+SkyblockCommands ChatTriggers Module
