@@ -865,7 +865,7 @@ function SkyblockCommandsCommand(arg1, arg2, ...args) {
 		}
 		
 	} else if (arg1 == "new") {
-		ChatLib.command("sc changelog 1.8.6", true);
+		ChatLib.command("sc changelog 1.8.7", true);
 	
 	} else if (arg1 == "discord") {
 		ChatLib.chat(ChatStart + "&eI made a discord server for this module. Please join it. It is still a WIP and staff are required.")
