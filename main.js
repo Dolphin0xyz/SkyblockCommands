@@ -1,8 +1,6 @@
 /// <reference types="../CTAutocomplete" />
 /// <reference lib="es2015" />
 
-module.exports = {};
-
 // TO DO 
 /// Changelog 1.8.0
 /// Finish of /sc auctionclick help
@@ -12,7 +10,7 @@ module.exports = {};
 const ChatStart = "&4&k&l0&r ";
 var PlayerName = Player.getName();
 var LastLoadedVersion = String(FileLib.read(OtherFilePath + "LastLoadedVersion.txt"));
-var CurrentVersion = "1.8.4";
+var CurrentVersion = "1.8.7";
 var YouAreDrowning = new Message("&3You are underwater and losing air supply! &90").setChatLineId(3141);
 var YouAreDrowning2 = new Message("&cYou are drowning and losing health!").setChatLineId(3142);
 var ChatLine = "&e&m-----------------------------------------------------";
@@ -95,6 +93,10 @@ var V1_8_0ChangelogMsg = new Message(ChatStart, V1_8_0ChangelogTC).setChatLineId
 var V1_8_1ChangelogMsg = new Message(ChatStart, V1_8_1ChangelogTC).setChatLineId(181);
 const V1_8_2ChangelogMsg = new Message(ChatStart, new TextComponent("&e&l1.8.2").setClick("run_command", "/sc changelog 1.8.2").setHoverValue("&3Click to see changes made in 1.8.2")).setChatLineId(182);
 const V1_8_3ChangelogMsg = new Message(ChatStart, new TextComponent("&e&l1.8.3").setClick("run_command", "/sc changelog 1.8.3").setHoverValue("&3Click to see changes made in 1.8.3")).setChatLineId(183);
+const V1_8_4ChangelogMsg = new Message(ChatStart, new TextComponent("&e&l1.8.4").setClick("run_command", "/sc changelog 1.8.4").setHoverValue("&3Click to see changes made in 1.8.4")).setChatLineId(184);
+const V1_8_5ChangelogMsg = new Message(ChatStart, new TextComponent("&e&l1.8.5").setClick("run_command", "/sc changelog 1.8.5").setHoverValue("&3Click to see changes made in 1.8.5")).setChatLineId(185);
+const V1_8_6ChangelogMsg = new Message(ChatStart, new TextComponent("&e&l1.8.6").setClick("run_command", "/sc changelog 1.8.6").setHoverValue("&3Click to see changes made in 1.8.6")).setChatLineId(186);
+const V1_8_6ChangelogMsg = new Message(ChatStart, new TextComponent("&e&l1.8.7").setClick("run_command", "/sc changelog 1.8.7").setHoverValue("&3Click to see changes made in 1.8.7")).setChatLineId(187);
 
 var ChangelogCenteredTextIDMSG = new Message(ChatLib.getCenteredText("&e&m-------&c Changelog &e&m-------&r")).setChatLineId(100);
 var ChatLineNameIDMSG = new Message(ChatLineName).setChatLineId(101);
@@ -434,7 +436,7 @@ function SkyblockCommandsCommand(arg1, arg2, ...args) {
 	
 	} else if (arg1 == "info" || arg1 == "module") {
 		ChatLib.chat(ChatLine);
-		ChatLib.chat("&5&k&l00&r&3 Sky&2Block &6Commands &r&5&k&l00&r &3&l&k0&r&6&l&o1&3&l&o.&6&l&o8&3&l&o.&6&l&o4&r&3&l&k0&r&c&o by &r&4&oDolphin0xyz\n&a&l&k1&r&3 Adds keybinds for most skyblock commands, fast travel warps and more in the vanilla controls menu. Use /sc for help and to use some features. &r&a&l&k0\n&r&e&l&k0&r&2 If keys conflicts with other keys things may not work and things outside this moudule may break. &r&e&l&k0\n&r&b&l&k0&r&d Contact me if you find bugs, need help, or have features to suggest. My discord name is Dolphin0xyz#7887 and you can also find me on twitter @Dolphin0xyz. &r&b&l&k0");
+		ChatLib.chat("&5&k&l00&r&3 Sky&2Block &6Commands &r&5&k&l00&r &3&l&k0&r&6&l&o1&3&l&o.&6&l&o8&3&l&o.&6&l&o7&r&3&l&k0&r&c&o by &r&4&oDolphin0xyz\n&a&l&k1&r&3 Adds keybinds for most skyblock commands, fast travel warps and more in the vanilla controls menu. Use /sc for help and to use some features. &r&a&l&k0\n&r&e&l&k0&r&2 If keys conflicts with other keys things may not work and things outside this moudule may break. &r&e&l&k0\n&r&b&l&k0&r&d Contact me if you find bugs, need help, or have features to suggest. My discord name is Dolphin0xyz#7887 and you can also find me on twitter @Dolphin0xyz. &r&b&l&k0");
 		ChatLib.chat(ChatLine);
 	
 	} else if (arg1 == "savekeys" || arg1 == "savekey") {
@@ -741,6 +743,12 @@ function SkyblockCommandsCommand(arg1, arg2, ...args) {
 			ChatLib.chat(V1_7_3ChangelogMsg);
 			ChatLib.chat(V1_7_4ChangelogMsg);
 			ChatLib.chat(V1_8_0ChangelogMsg);
+			ChatLib.chat(V1_8_1ChangelogMsg);
+			ChatLib.chat(V1_8_2ChangelogMsg);
+			ChatLib.chat(V1_8_3ChangelogMsg);
+			ChatLib.chat(V1_8_4ChangelogMsg);
+			ChatLib.chat(V1_8_5ChangelogMsg);
+			ChatLib.chat(V1_8_6ChangelogMsg);
 			ChatLib.chat(ChatLineIDMSG);
 		
 		} else if (arg2 == "1.4.3") {
@@ -827,10 +835,37 @@ function SkyblockCommandsCommand(arg1, arg2, ...args) {
             ChatLib.chat(ChangelogBackMsg);
             ChatLib.chat(ChatLine);
 
+		} else if (arg2 == "1.8.5") {
+			ChatLib.chat("&e&m-------------------&6 Changelog:  1.8.5 &r&e&m-------------------");
+			ChatLib.chat("&6New Keybinds");
+			ChatLib.chat("&eHeart of the Mountain - runs /hotm");
+			ChatLib.chat("&eStorage - runs /storage");
+			ChatLib.chat("&eBestiary - runs /bestiary");
+			ChatLib.chat("&eForge- runs /warpforge");
+			ChatLib.chat("&eDwarven Mines - runs /warp mines");
+			ChatLib.chat("");
+			ChatLib.chat("I am working to reduce the lag and bring back the changes from 1.8.2")
+            ChatLib.chat(ChangelogBackMsg);
+            ChatLib.chat(ChatLine);
+
+		} else if (arg2 == "1.8.6") {
+			ChatLib.chat("&e&m-------------------&6 Changelog:  1.8.6 &r&e&m-------------------");
+			ChatLib.chat("&eBug fixes.");
+            ChatLib.chat(ChangelogBackMsg);
+            ChatLib.chat(ChatLine);
+
+		} else if (arg2 == "1.8.7") {
+			ChatLib.chat("&e&m-------------------&6 Changelog:  1.8.7 &r&e&m-------------------");
+			ChatLib.chat("&6New Keybinds");
+			ChatLib.chat("&ewarp ch void museum");
+			ChatLib.chat("&ejoindungeon 1-7 + master mode 1-6");
+            ChatLib.chat(ChangelogBackMsg);
+            ChatLib.chat(ChatLine);
+
 		}
 		
 	} else if (arg1 == "new") {
-		ChatLib.command("sc changelog 1.8.1", true);
+		ChatLib.command("sc changelog 1.8.6", true);
 	
 	} else if (arg1 == "discord") {
 		ChatLib.chat(ChatStart + "&eI made a discord server for this module. Please join it. It is still a WIP and staff are required.")
@@ -1428,6 +1463,27 @@ function SkyblockKeyFunc() {
 	this.key71 = new KeyBind("Auction Click", 0, "Skyblock - Auctions");
 	this.key72 = new KeyBind("Enchantment Table", 0, "Skyblock - General");
 	this.key73 = new KeyBind("Anvil", 0, "Skyblock - General");
+	this.key74 = new KeyBind("Dwarven Mines", 0, "Skyblock - Warps");
+	this.key75 = new KeyBind("Forge", 0, "Skyblock - Warps");
+	this.key76 = new KeyBind("Bestiary", 0, "Skyblock - General");
+	this.key77 = new KeyBind("Storage", 0, "Skyblock - General");
+	this.key78 = new KeyBind("Heart of the Mountain", 0, "Skyblock - General");
+	this.key79 = new KeyBind("Crystal Hollows", 0, "Skyblock - Warps");
+	this.key80 = new KeyBind("Void Sepulture", 0, "Skyblock - Warps (MVP+ Only)");
+	this.key81 = new KeyBind("Museum", 0, "Skyblock - Warps (MVP+ Only)");
+	this.key82 = new KeyBind("Floor 1", 0, "Skyblock - Catacombs");
+	this.key83 = new KeyBind("Floor 2", 0, "Skyblock - Catacombs");
+	this.key84 = new KeyBind("Floor 3", 0, "Skyblock - Catacombs");
+	this.key85 = new KeyBind("Floor 4", 0, "Skyblock - Catacombs");
+	this.key86 = new KeyBind("Floor 5", 0, "Skyblock - Catacombs");
+	this.key87 = new KeyBind("Floor 1", 0, "Skyblock - Catacombs");
+	this.key88 = new KeyBind("Floor 1", 0, "Skyblock - Catacombs");
+	this.key89 = new KeyBind("Floor 1", 0, "Skyblock - Catacombs (Master)");
+	this.key90 = new KeyBind("Floor 2", 0, "Skyblock - Catacombs (Master)");
+	this.key91 = new KeyBind("Floor 3", 0, "Skyblock - Catacombs (Master)");
+	this.key92 = new KeyBind("Floor 4", 0, "Skyblock - Catacombs (Master)");
+	this.key93 = new KeyBind("Floor 5", 0, "Skyblock - Catacombs (Master)");
+	this.key94 = new KeyBind("Floor 6", 0, "Skyblock - Catacombs (Master)");
 
 	this.tick = function() {
 		if (this.key.isPressed()) {
@@ -1663,6 +1719,69 @@ function SkyblockKeyFunc() {
 		}
 		if (this.key73.isPressed()) {
 			ChatLib.command("av");
+		}
+		if (this.key74.isPressed()) {
+			ChatLib.command("warp mines");
+		}
+		if (this.key75.isPressed()) {
+			ChatLib.command("warpforge");
+		}
+		if (this.key76.isPressed()) {
+			ChatLib.command("bestiary");
+		}
+		if (this.key77.isPressed()) {
+			ChatLib.command("storage");
+		}
+		if (this.key78.isPressed()) {
+			ChatLib.command("hotm");
+		}
+		if (this.key79.isPressed()) {
+			ChatLib.command("warp ch");
+		}
+		if (this.key80.isPressed()) {
+			ChatLib.command("warp void");
+		}
+		if (this.key81.isPressed()) {
+			ChatLib.command("warp museum");
+		}
+		if (this.key82.isPressed()) {
+			ChatLib.command("joindungeon catacombs 1");
+		}
+		if (this.key83.isPressed()) {
+			ChatLib.command("joindungeon catacombs 2");
+		}
+		if (this.key84.isPressed()) {
+			ChatLib.command("joindungeon catacombs 3");
+		}
+		if (this.key85.isPressed()) {
+			ChatLib.command("joindungeon catacombs 4");
+		}
+		if (this.key86.isPressed()) {
+			ChatLib.command("joindungeon catacombs 5");
+		}
+		if (this.key87.isPressed()) {
+			ChatLib.command("joindungeon catacombs 6");
+		}
+		if (this.key88.isPressed()) {
+			ChatLib.command("joindungeon catacombs 7");
+		}
+		if (this.key89.isPressed()) {
+			ChatLib.command("joindungeon master_catacombs 1");
+		}
+		if (this.key90.isPressed()) {
+			ChatLib.command("joindungeon master_catacombs 2");
+		}
+		if (this.key91.isPressed()) {
+			ChatLib.command("joindungeon master_catacombs 3");
+		}
+		if (this.key92.isPressed()) {
+			ChatLib.command("joindungeon master_catacombs 4");
+		}
+		if (this.key93.isPressed()) {
+			ChatLib.command("joindungeon master_catacombs 5");
+		}
+		if (this.key94.isPressed()) {
+			ChatLib.command("joindungeon master_catacombs 6");
 		}
 	}
 }
