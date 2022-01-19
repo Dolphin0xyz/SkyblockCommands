@@ -10,7 +10,7 @@
 const ChatStart = "&4&k&l0&r ";
 var PlayerName = Player.getName();
 var LastLoadedVersion = String(FileLib.read(OtherFilePath + "LastLoadedVersion.txt"));
-var CurrentVersion = "1.8.7";
+var CurrentVersion = "1.8.8";
 var YouAreDrowning = new Message("&3You are underwater and losing air supply! &90").setChatLineId(3141);
 var YouAreDrowning2 = new Message("&cYou are drowning and losing health!").setChatLineId(3142);
 var ChatLine = "&e&m-----------------------------------------------------";
@@ -96,7 +96,8 @@ const V1_8_3ChangelogMsg = new Message(ChatStart, new TextComponent("&e&l1.8.3")
 const V1_8_4ChangelogMsg = new Message(ChatStart, new TextComponent("&e&l1.8.4").setClick("run_command", "/sc changelog 1.8.4").setHoverValue("&3Click to see changes made in 1.8.4")).setChatLineId(184);
 const V1_8_5ChangelogMsg = new Message(ChatStart, new TextComponent("&e&l1.8.5").setClick("run_command", "/sc changelog 1.8.5").setHoverValue("&3Click to see changes made in 1.8.5")).setChatLineId(185);
 const V1_8_6ChangelogMsg = new Message(ChatStart, new TextComponent("&e&l1.8.6").setClick("run_command", "/sc changelog 1.8.6").setHoverValue("&3Click to see changes made in 1.8.6")).setChatLineId(186);
-const V1_8_6ChangelogMsg = new Message(ChatStart, new TextComponent("&e&l1.8.7").setClick("run_command", "/sc changelog 1.8.7").setHoverValue("&3Click to see changes made in 1.8.7")).setChatLineId(187);
+const V1_8_7ChangelogMsg = new Message(ChatStart, new TextComponent("&e&l1.8.7").setClick("run_command", "/sc changelog 1.8.7").setHoverValue("&3Click to see changes made in 1.8.7")).setChatLineId(187);
+const V1_8_8ChangelogMsg = new Message(ChatStart, new TextComponent("&e&l1.8.8").setClick("run_command", "/sc changelog 1.8.8").setHoverValue("&3Click to see changes made in 1.8.8")).setChatLineId(188);
 
 var ChangelogCenteredTextIDMSG = new Message(ChatLib.getCenteredText("&e&m-------&c Changelog &e&m-------&r")).setChatLineId(100);
 var ChatLineNameIDMSG = new Message(ChatLineName).setChatLineId(101);
@@ -436,7 +437,7 @@ function SkyblockCommandsCommand(arg1, arg2, ...args) {
 	
 	} else if (arg1 == "info" || arg1 == "module") {
 		ChatLib.chat(ChatLine);
-		ChatLib.chat("&5&k&l00&r&3 Sky&2Block &6Commands &r&5&k&l00&r &3&l&k0&r&6&l&o1&3&l&o.&6&l&o8&3&l&o.&6&l&o7&r&3&l&k0&r&c&o by &r&4&oDolphin0xyz\n&a&l&k1&r&3 Adds keybinds for most skyblock commands, fast travel warps and more in the vanilla controls menu. Use /sc for help and to use some features. &r&a&l&k0\n&r&e&l&k0&r&2 If keys conflicts with other keys things may not work and things outside this moudule may break. &r&e&l&k0\n&r&b&l&k0&r&d Contact me if you find bugs, need help, or have features to suggest. My discord name is Dolphin0xyz#7887 and you can also find me on twitter @Dolphin0xyz. &r&b&l&k0");
+		ChatLib.chat("&5&k&l00&r&3 Sky&2Block &6Commands &r&5&k&l00&r &3&l&k0&r&6&l&o1&3&l&o.&6&l&o8&3&l&o.&6&l&o8&r&3&l&k0&r&c&o by &r&4&oDolphin0xyz\n&a&l&k1&r&3 Adds keybinds for most skyblock commands, fast travel warps and more in the vanilla controls menu. Use /sc for help and to use some features. &r&a&l&k0\n&r&e&l&k0&r&2 If keys conflicts with other keys things may not work and things outside this moudule may break. &r&e&l&k0\n&r&b&l&k0&r&d Contact me if you find bugs, need help, or have features to suggest. My discord name is Dolphin0xyz#7887 and you can also find me on twitter @Dolphin0xyz. &r&b&l&k0");
 		ChatLib.chat(ChatLine);
 	
 	} else if (arg1 == "savekeys" || arg1 == "savekey") {
@@ -862,10 +863,15 @@ function SkyblockCommandsCommand(arg1, arg2, ...args) {
             ChatLib.chat(ChangelogBackMsg);
             ChatLib.chat(ChatLine);
 
+		} else if (arg2 == "1.8.6") {
+	    	ChatLib.chat("&e&m-------------------&6 Changelog:  1.8.6 &r&e&m-------------------");
+	    	ChatLib.chat("&eBug fixes.");
+    		ChatLib.chat(ChangelogBackMsg);
+		    ChatLib.chat(ChatLine);
 		}
 		
 	} else if (arg1 == "new") {
-		ChatLib.command("sc changelog 1.8.7", true);
+		ChatLib.command("sc changelog 1.8.8", true);
 	
 	} else if (arg1 == "discord") {
 		ChatLib.chat(ChatStart + "&eI made a discord server for this module. Please join it. It is still a WIP and staff are required.")
