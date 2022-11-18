@@ -10,7 +10,7 @@
 const ChatStart = "&4&k&l0&r ";
 var PlayerName = Player.getName();
 var LastLoadedVersion = String(FileLib.read(OtherFilePath + "LastLoadedVersion.txt"));
-var CurrentVersion = "1.8.8";
+var CurrentVersion = "1.8.10";
 var YouAreDrowning = new Message("&3You are underwater and losing air supply! &90").setChatLineId(3141);
 var YouAreDrowning2 = new Message("&cYou are drowning and losing health!").setChatLineId(3142);
 var ChatLine = "&e&m-----------------------------------------------------";
@@ -291,6 +291,7 @@ register("worldLoad", () => {
 });
 
 function UpdateAlert() {
+	return;
 	setTimeout(() => {
 		FileLib.write(OtherFilePath + "LastLoadedVersion.txt", CurrentVersion);
 		ChatLib.chat(ChatStart + "&eSkyblockCommands has been updated to version " + CurrentVersion + " ! " + ChatStart);
@@ -362,7 +363,7 @@ register("renderAir", function(hideAir) {
 	
 // /ah inactive auction reply revamp
 
-TriggerRegister.registerCommand(ahMSGtrigger).setName("ah");
+TriggerRegister.registerCommand(ahMSGtrigger).setName("ah", true);
 
 function ahMSGtrigger(username) {
 	if( username == undefined) {
@@ -437,7 +438,7 @@ function SkyblockCommandsCommand(arg1, arg2, ...args) {
 	
 	} else if (arg1 == "info" || arg1 == "module") {
 		ChatLib.chat(ChatLine);
-		ChatLib.chat("&5&k&l00&r&3 Sky&2Block &6Commands &r&5&k&l00&r &3&l&k0&r&6&l&o1&3&l&o.&6&l&o8&3&l&o.&6&l&o8&r&3&l&k0&r&c&o by &r&4&oDolphin0xyz\n&a&l&k1&r&3 Adds keybinds for most skyblock commands, fast travel warps and more in the vanilla controls menu. Use /sc for help and to use some features. &r&a&l&k0\n&r&e&l&k0&r&2 If keys conflicts with other keys things may not work and things outside this moudule may break. &r&e&l&k0\n&r&b&l&k0&r&d Contact me if you find bugs, need help, or have features to suggest. My discord name is Dolphin0xyz#7887 and you can also find me on twitter @Dolphin0xyz. &r&b&l&k0");
+		ChatLib.chat("&5&k&l00&r&3 Sky&2Block &6Commands &r&5&k&l00&r &3&l&k0&r&6&l&o1&3&l&o.&6&l&o8&3&l&o.&6&l&o10&r&3&l&k0&r&c&o by &r&4&oDolphin0xyz\n&a&l&k1&r&3 Adds keybinds for most skyblock commands, fast travel warps and more in the vanilla controls menu. Use /sc for help and to use some features. &r&a&l&k0\n&r&e&l&k0&r&2 If keys conflicts with other keys things may not work and things outside this moudule may break. &r&e&l&k0\n&r&b&l&k0&r&d Join the discord server (/sc discord) if you find bugs, need help, or have features to suggest. &r&b&l&k0");
 		ChatLib.chat(ChatLine);
 	
 	} else if (arg1 == "savekeys" || arg1 == "savekey") {
@@ -1101,6 +1102,7 @@ register("gameLoad", () => {
 
 function ExpertiseKills() {
 	var HeldItem = Player.getHeldItem();
+	if (HeldItem == null) return;
 	if (HeldItem.getID() == 346) {
 		if (HeldItem.getItemNBT().getCompoundTag("tag").getCompoundTag("ExtraAttributes").get("id") != "GRAPPLING_HOOK") {
 			var ExpertiseKills = HeldItem.getItemNBT().getCompoundTag("tag").getCompoundTag("ExtraAttributes").get("expertise_kills");
@@ -1210,6 +1212,7 @@ var DungeonItemDisplayY = String(FileLib.read(DungeonItemFilePath + "y.txt"));
 
 function getBSBP() {
 	var HeldItem = Player.getHeldItem();
+	if (HeldItem == null) return;
 	var BSBP = HeldItem.getItemNBT().getCompoundTag("tag").getCompoundTag("ExtraAttributes").get("baseStatBoostPercentage");
 	if (BSBP == undefined) {
 		return false;
@@ -1222,6 +1225,7 @@ function getBSBP() {
 
 function getFloor() {
 	var HeldItem = Player.getHeldItem();
+	if (HeldItem == null) return false;
 	var Floor = HeldItem.getItemNBT().getCompoundTag("tag").getCompoundTag("ExtraAttributes").get("item_tier");
 	if (Floor == undefined) {
 		return false;
@@ -1276,15 +1280,15 @@ register("chat", (message, event) => {
 	  var MaddoxTextComponent = EventLib.getMessage(event);
 	  var MaddoxMessage = new Message(MaddoxTextComponent);
 	  var MaddoxClickableTextComponent = MaddoxMessage.getMessageParts();
-	  var MaddoxCommand = String(MaddoxClickableTextComponent[2].getClickValue());
+	  var MaddoxCommand = String(MaddoxClickableTextComponent[3].getClickValue()).replace("/", "");
 	  FileLib.write(AutoMaddoxFilePath + "Command.txt", MaddoxCommand);
 	  if (SlayerScoreboard() != false && automaddoxtoggle == "1") {
-		ChatLib.say(MaddoxCommand);
+		ChatLib.command(MaddoxCommand);
 	  }
 	}
 	if (message.includes("SLAYER BOSS SLAIN") && automaddoxtoggle != "1") {
 	  var MaddoxCommand = String(FileLib.read(AutoMaddoxFilePath + "Command.txt"));
-	  ChatLib.say(MaddoxCommand);
+	  ChatLib.command(MaddoxCommand);
 	}
   }).setCriteria("${message}");
   
@@ -1490,6 +1494,8 @@ function SkyblockKeyFunc() {
 	this.key92 = new KeyBind("Floor 4", 0, "Skyblock - Catacombs (Master)");
 	this.key93 = new KeyBind("Floor 5", 0, "Skyblock - Catacombs (Master)");
 	this.key94 = new KeyBind("Floor 6", 0, "Skyblock - Catacombs (Master)");
+	this.key95 = new KeyBind("Trapper", 0, "Skyblock - Warps");
+	this.key96 = new KeyBind("Nucleus", 0, "Skyblock - Warps (MVP+ Only)");
 
 	this.tick = function() {
 		if (this.key.isPressed()) {
@@ -1788,6 +1794,12 @@ function SkyblockKeyFunc() {
 		}
 		if (this.key94.isPressed()) {
 			ChatLib.command("joindungeon master_catacombs 6");
+		}
+		if (this.key95.isPressed()) {
+			ChatLib.command("warp trapper");
+		}
+		if (this.key96.isPressed()) {
+			ChatLib.command("warp nucleus");
 		}
 	}
 }
